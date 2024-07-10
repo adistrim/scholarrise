@@ -24,7 +24,7 @@ const Header = () => {
         { href: "/coming-soon", label: "Donate" },
         { href: "/about", label: "About Us" },
         { href: "/coming-soon", label: "Work" },
-        { href: "/coming-soon", label: "Contact Us" },
+        { href: "/contact", label: "Contact Us" },
     ];
 
     return (
