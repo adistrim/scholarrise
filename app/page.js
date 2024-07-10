@@ -44,7 +44,7 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.9 }}
           >
             <div className="relative w-full h-full">
-              <Image src="/images/students.png" alt="Students" fill style={{objectFit: "contain"}} />
+              <Image src="/images/students-frame.jpg" alt="Students" fill style={{objectFit: "contain"}} />
             </div>
           </motion.div>
         </section>
