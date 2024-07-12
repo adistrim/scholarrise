@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FaLeaf, FaGraduationCap, FaHandsHelping } from 'react-icons/fa';
 import FeatureCard from './FeatureCard';
 import LeaderCard from './LeaderCard';
+import Link from 'next/link';
 
 const AboutPage = () => {
     return (
@@ -98,12 +99,12 @@ const AboutPage = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 1 }}
                 >
-                    <a
-                        href="#"
+                    <Link
+                        href="/donate"
                         className="inline-block bg-[#FF5402] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#ff5202f1] transition duration-300 transform hover:scale-105"
                     >
                         Join Our Mission
-                    </a>
+                    </Link>
                 </motion.section>
             </main>
         </div>

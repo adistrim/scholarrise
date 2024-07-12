@@ -1,7 +1,7 @@
-import ComingSoonPage from "@/components/ComingSoon"
+import DonatePage from "@/components/DonatePage"
 
 export default function Donate() {
     return (
-        <ComingSoonPage />
+        <DonatePage />
     )
 }
