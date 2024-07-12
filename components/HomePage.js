@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { Jacques_Francois_Shadow } from 'next/font/google';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const jacques_francois_shadow = Jacques_Francois_Shadow({ subsets: ['latin'], weight: '400' });
 
@@ -69,13 +70,15 @@ export default function HomePage() {
                                 We believe in the transformative power of education. Our mission is to identify and nurture talented students across India, providing them with the resources and support they need to excel academically and professionally.
                             </p>
                             <div>
-                                <motion.button
-                                    className="bg-orange-500 text-[#F9F8F4] my-[1rem] py-2 px-4 rounded-full border-2 border-[#D1D1D1] hover:bg-orange-600 flex items-center space-x-2"
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
-                                    Apply for Scholarship <span className="ml-2">&rarr;</span>
-                                </motion.button>
+                                <Link href="/apply-for-scholarship">
+                                    <motion.button
+                                        className="bg-orange-500 text-[#F9F8F4] my-[1rem] py-2 px-4 rounded-full border-2 border-[#D1D1D1] hover:bg-orange-600 flex items-center space-x-2"
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                    >
+                                        Apply for Scholarship <span className="ml-2">&rarr;</span>
+                                    </motion.button>
+                                </Link>
                             </div>
                         </div>
                     </motion.div>
