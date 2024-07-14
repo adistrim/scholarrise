@@ -1,6 +1,51 @@
 "use client";
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
+
+const Modal = ({ isOpen, onClose, isSuccess }) => {
+    if (!isOpen) return null;
+
+    return (
+        <AnimatePresence>
+            <motion.div
+                className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+            >
+                <motion.div
+                    className="bg-white p-8 rounded-2xl shadow-2xl max-w-md w-full mx-4"
+                    initial={{ scale: 0.9, y: 20 }}
+                    animate={{ scale: 1, y: 0 }}
+                    exit={{ scale: 0.9, y: 20 }}
+                >
+                    <div className="text-center">
+                        {isSuccess ? (
+                            <FaCheckCircle className="text-green-500 text-5xl mx-auto mb-4" />
+                        ) : (
+                            <FaTimesCircle className="text-red-500 text-5xl mx-auto mb-4" />
+                        )}
+                        <h2 className={`text-2xl font-bold mb-4 ${isSuccess ? 'text-green-600' : 'text-red-600'}`}>
+                            {isSuccess ? 'Message Sent!' : 'Oops!'}
+                        </h2>
+                        <p className="text-[#0C231B] mb-6">
+                            {isSuccess
+                                ? "Thank you for reaching out. We've received your message and will get back to you soon."
+                                : "We couldn't send your message at this time. Please try again later or contact us directly."}
+                        </p>
+                        <button
+                            onClick={onClose}
+                            className="bg-[#FF5402] text-white px-6 py-2 rounded-full hover:bg-[#ff5202f1] transition-colors font-semibold"
+                        >
+                            {isSuccess ? 'Great!' : 'Close'}
+                        </button>
+                    </div>
+                </motion.div>
+            </motion.div>
+        </AnimatePresence>
+    );
+};
 
 const ContactPage = () => {
     const [formData, setFormData] = useState({
@@ -12,7 +57,9 @@ const ContactPage = () => {
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [submitMessage, setSubmitMessage] = useState('');
+    const [modalOpen, setModalOpen] = useState(false);
+    const [modalMessage, setModalMessage] = useState('');
+    const [isSuccess, setIsSuccess] = useState(false)
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -25,7 +72,6 @@ const ContactPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
-        setSubmitMessage('');
 
         try {
             const response = await fetch('/api/contact', {
@@ -36,17 +82,15 @@ const ContactPage = () => {
                 body: JSON.stringify(formData),
             });
 
+            setIsSuccess(response.ok);
             if (response.ok) {
-                const data = await response.json();
-                setSubmitMessage(data.message);
                 setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-            } else {
-                throw new Error('Failed to send message');
             }
         } catch (error) {
-            setSubmitMessage('Oops! Something went wrong. Please try again later.');
+            setIsSuccess(false);
         } finally {
             setIsSubmitting(false);
+            setModalOpen(true);
         }
     };
 
@@ -140,12 +184,14 @@ const ContactPage = () => {
                     >
                         {isSubmitting ? 'Sending...' : 'Send Message'}
                     </button>
-
-                    {submitMessage && (
-                        <p className="mt-4 text-center text-green-600">{submitMessage}</p>
-                    )}
                 </motion.form>
             </div>
+
+            <Modal
+                isOpen={modalOpen}
+                onClose={() => setModalOpen(false)}
+                isSuccess={isSuccess}
+            />
         </div>
     );
 };
