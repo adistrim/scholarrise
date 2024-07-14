@@ -21,6 +21,9 @@ const ApplyForScholarship = () => {
         transcript: null,
         resume: null,
         aadharCard: null,
+        parentName: '',
+        relationWithParent: '',
+        parentAadharCard: null,
     });
 
 
@@ -150,6 +153,24 @@ const ApplyForScholarship = () => {
                                 required
                                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF5402]"
                             />
+                            <input
+                                type="text"
+                                name="parentName"
+                                value={formData.parentName}
+                                onChange={handleChange}
+                                placeholder="Parent's Name"
+                                required
+                                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF5402]"
+                            />
+                            <input
+                                type="text"
+                                name="relationWithParent"
+                                value={formData.relationWithParent}
+                                onChange={handleChange}
+                                placeholder="Relation with Parent"
+                                required
+                                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF5402]"
+                            />
                         </div>
                     </div>
 
@@ -266,6 +287,38 @@ const ApplyForScholarship = () => {
                                 <input
                                     type="file"
                                     name="aadharCard"
+                                    onChange={handleChange}
+                                    required
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF5402]"
+                                />
+                            </div>
+                            <div>
+                                <label className="block mb-2">Income Certificate</label>
+                                <input
+                                    type="file"
+                                    name="incomeProof"
+                                    onChange={handleChange}
+                                    required
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF5402]"
+                                />
+                            </div>
+                            {formData.studentType === 'college' && (
+                                <div>
+                                    <label className="block mb-2">Letter of Recommendation</label>
+                                    <input
+                                        type="file"
+                                        name="recommendationLetter"
+                                        onChange={handleChange}
+                                        required
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF5402]"
+                                    />
+                                </div>
+                            )}
+                            <div>
+                                <label className="block mb-2">Parent&apos;s Aadhar Card</label>
+                                <input
+                                    type="file"
+                                    name="parentAadharCard"
                                     onChange={handleChange}
                                     required
                                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF5402]"

@@ -27,7 +27,7 @@ export async function POST(request) {
         });
 
         const attachments = [];
-        const fileFields = ['idCard', 'lastMarksheet', 'transcript', 'resume', 'aadharCard'];
+        const fileFields = ['idCard', 'lastMarksheet', 'transcript', 'resume', 'aadharCard', 'incomeProof', 'recommendationLetter', 'parentAadharCard'];
 
         for (const field of fileFields) {
             const file = formData.get(field);
@@ -45,16 +45,27 @@ export async function POST(request) {
             to: process.env.EMAIL_TO,
             subject: `New Scholarship Application: ${name}`,
             text: `
-        Name: ${name}
-        Email: ${email}
-        Phone: ${phone}
-        Address: ${address}
-        Annual Family Income: ${familyIncome}
-        Student Type: ${studentType}
-        ${studentType === 'school' ? `School Name: ${schoolName}` : `College Name: ${collegeName}`}
-        Current ${studentType === 'school' ? 'Class' : 'Year'}: ${currentClass}
-        ${studentType === 'college' ? `Current CGPA: ${currentCGPA}` : ''}
-      `,
+    Name: ${name}
+    Email: ${email}
+    Phone: ${phone}
+    Address: ${address}
+    Parent's Name: ${parentName}
+    Relation with Parent: ${relationWithParent}
+    Annual Family Income: ${familyIncome}
+    Student Type: ${studentType}
+    ${studentType === 'school' ? `School Name: ${schoolName}` : `College Name: ${collegeName}`}
+    Current ${studentType === 'school' ? 'Class' : 'Year'}: ${currentClass}
+    ${studentType === 'college' ? `Current CGPA: ${currentCGPA}` : ''}
+    
+    Attached Documents:
+    - ID Card
+    - ${studentType === 'school' ? 'Last Marksheet' : 'Transcript'}
+    - Aadhar Card
+    - Parent's Aadhar Card
+    - Income Proof Document
+    ${studentType === 'college' ? '- Resume' : ''}
+    ${studentType === 'college' ? '- Letter of Recommendation' : ''}
+`,
             attachments: attachments,
         });
 
