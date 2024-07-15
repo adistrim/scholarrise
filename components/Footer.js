@@ -67,18 +67,12 @@ const Footer = () => {
         </div>
 
         <motion.div
-          className="border-t border-[#0C231B] pt-8 flex flex-col md:flex-row justify-between items-center"
+          className="border-t border-[#0C231B] pt-8 flex items-center justify-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <p>&copy; {new Date().getFullYear()} Scholar Rise India. All rights reserved.</p>
-          <nav className="mt-4 md:mt-0">
-            <ul className="flex space-x-6">
-              <li><a href="#" className="hover:text-[#FF5402] transition duration-300">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-[#FF5402] transition duration-300">Terms of Service</a></li>
-            </ul>
-          </nav>
+          <p className='text-sm'>&copy; {new Date().getFullYear()} Scholar Rise India. All rights reserved.</p>
         </motion.div>
       </div>
     </footer>
