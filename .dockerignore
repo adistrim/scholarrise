@@ -20,3 +20,4 @@ yarn-error.log*
 .gitignore
 README.md
 .DS_Store
+ProjectStructure.txt

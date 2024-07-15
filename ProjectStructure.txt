@@ -1,0 +1,56 @@
+.
+├── Dockerfile.dev
+├── Dockerfile.prod
+├── LICENSE
+├── README.md
+├── app
+│   ├── about
+│   │   └── page.js
+│   ├── api
+│   │   ├── apply-scholarship
+│   │   │   └── route.js
+│   │   └── contact
+│   │       └── route.js
+│   ├── apply-for-scholarship
+│   │   └── page.js
+│   ├── contact
+│   │   └── page.js
+│   ├── donate
+│   │   └── page.js
+│   ├── globals.css
+│   ├── layout.js
+│   ├── not-found.js
+│   ├── page.js
+│   └── work
+│       └── page.js
+├── components
+│   ├── AboutPage.js
+│   ├── ApplyForScholarship.js
+│   ├── ComingSoon.js
+│   ├── ContactPage.js
+│   ├── DonatePage.js
+│   ├── DonationImpactCard.js
+│   ├── FeatureCard.js
+│   ├── Footer.js
+│   ├── Header.js
+│   ├── HomePage.js
+│   ├── LeaderCard.js
+│   └── NotFoundPage.js
+├── jsconfig.json
+├── next.config.mjs
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── public
+│   ├── images
+│   │   ├── squares.png
+│   │   ├── students-frame.jpg
+│   │   └── students.jpg
+│   ├── logos
+│   │   ├── scholarrise-no-text.png
+│   │   ├── scholarrise.png
+│   │   └── tab-icon.png
+│   └── people
+│       ├── priya-sharma.jpg
+│       └── rahul-patel.jpg
+└── tailwind.config.js
