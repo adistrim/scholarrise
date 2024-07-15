@@ -87,10 +87,10 @@ const DonatePage = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <h1 className="text-6xl font-bold text-[#0C231B] mb-4">
+                    <h1 className="text-5xl md:text-6xl font-bold text-[#0C231B] mb-4">
                         Support <span className='text-[#FF5402]'>Our Cause</span>
                     </h1>
-                    <p className="text-xl text-[#0C231B] max-w-3xl mx-auto">
+                    <p className="text-lg md:text-xl text-[#0C231B] max-w-3xl mx-auto">
                         Your donation can make a significant difference in the lives of underprivileged students across India.
                         Help us create a brighter future through education.
                     </p>

@@ -22,7 +22,7 @@ export default function HomePage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
                     >
-                        <h1 className={`text-4xl sm:text-6xl md:text-6xl lg:text-7xl font-bold mt-4 ${jacques_francois_shadow.className}`}>Scholar Rise India</h1>
+                        <h1 className={`text-5xl sm:text-6xl md:text-6xl lg:text-7xl font-bold mt-4 ${jacques_francois_shadow.className}`}>Scholar Rise India</h1>
                         <div>
                             <motion.hr
                                 className="border-t-2 border-orange-500 w-full sm:w-[20rem] my-4"
@@ -31,7 +31,7 @@ export default function HomePage() {
                                 transition={{ duration: 0.5, delay: 0.4 }}
                             />
                             <motion.p
-                                className="text-lg lg:text-xl mt-2"
+                                className="text-md md:text-lg lg:text-xl mt-2"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ duration: 0.5, delay: 0.6 }}

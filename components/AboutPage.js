@@ -10,7 +10,7 @@ const AboutPage = () => {
         <div className="min-h-screen bg-gradient-to-b from-[#F9F8F4] to-[#E6E4D5]">
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <motion.h1
-                    className="text-5xl font-bold text-[#0C231B] mb-8 text-center"
+                    className="text-5xl md:text-6xl font-bold text-[#0C231B] mb-8 text-center"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
@@ -24,7 +24,7 @@ const AboutPage = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                    <p className="text-xl text-[#0C231B] text-center max-w-3xl mx-auto">
+                    <p className="text-lg md:text-xl text-[#0C231B] text-center max-w-3xl mx-auto">
                         Scholar Rise India is dedicated to empowering underprivileged students through education,
                         fostering a brighter future for individuals and communities across India.
                     </p>
